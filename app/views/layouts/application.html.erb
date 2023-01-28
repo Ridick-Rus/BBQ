@@ -11,8 +11,7 @@
 </head>
 
 <body>
-
-<div class="navbar navbar-default navbar-static-top">
+<div class="card bg-light navbar navbar-default navbar-static-top">
   <div class="container">
     <%= link_to t('app.name'), root_path, class: 'navbar-brand' %>
 
@@ -31,12 +30,6 @@
 </div>
 
 <div class="container">
-  <% flash.each do |type, msg| %>
-    <div>
-      <%= msg %>
-    </div>
-  <% end %>
-
   <div class="row">
     <div class="col-lg-9 ">
       <%= yield %>
@@ -45,8 +38,11 @@
     </div><!--/span-->
   </div>
 
-  <footer>
-    <p>&copy; <%= t('app.company') %> 2023</p>
+
+  <footer class="text-center text-lg-start">
+    <div class="text-center p-1">
+      <p class="m-0">&copy; <%= t('app.company') %> 2023</p>
+    </div>
   </footer>
 </div>
 </body>
