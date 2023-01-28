@@ -2,6 +2,7 @@
 @import 'bootstrap-icons/font/bootstrap-icons';
 @import "events";
 @import "user";
+@import "header";
 
 /* Buffers */
 .buffer-top {
@@ -23,6 +24,8 @@
   width: auto;
   border-radius: 50%;
 }
+
+
 
 /* Thumbnails for events/index */
 .thumbnail {
