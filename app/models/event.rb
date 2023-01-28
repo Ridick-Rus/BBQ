@@ -5,6 +5,7 @@ class Event < ActiveRecord::Base
   has_many :comments, dependent: :destroy
   has_many :subscriptions, dependent: :destroy
   has_many :subscribers, through: :subscriptions, source: :user
+  has_many :photos
 
   # Валидируем юзера на присутствие. В Rails 5 связи
   # валидируются по умолчанию
@@ -14,4 +15,8 @@ class Event < ActiveRecord::Base
   # У события должны быть заполнены место и время
   validates :address, presence: true
   validates :datetime, presence: true
+
+  def visitors
+    (subscribers + [user]).uniq
+  end
 end

@@ -18,6 +18,8 @@ gem "puma", "~> 5.0"
 gem "devise"
 gem "devise-i18n"
 gem "russian"
+gem "carrierwave"
+gem "rmagick"
 
 # Bundle and transpile JavaScript [https://github.com/rails/jsbundling-rails]
 gem "jsbundling-rails"
