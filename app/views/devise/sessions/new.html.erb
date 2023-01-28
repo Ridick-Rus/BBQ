@@ -1,15 +1,16 @@
 <h2 class="mt-2">Войти</h2>
 
+<%= form_for(resource, as: resource_name, data: {turbo: false}, url: session_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name), data: {turbo: false}) do |f| %>
   <div class="field form-group col-md-6">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control mb-2"  %>
+    <%= f.label :email %><br/>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control mb-2" %>
   </div>
 
   <div class="field form-group col-md-6">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password", class: "form-control mb-2"  %>
+    <%= f.label :password %><br/>
+    <%= f.password_field :password, autocomplete: "current-password", class: "form-control mb-2" %>
   </div>
 
   <% if devise_mapping.rememberable? %>

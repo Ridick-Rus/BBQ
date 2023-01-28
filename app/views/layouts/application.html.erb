@@ -19,10 +19,10 @@
       <ul class="mg-bt">
         <% if user_signed_in? %>
           <li class="header-nav-item"><%= link_to 'Профиль', current_user, class: "nav-link button" %></li>
-          <li class="header-nav-item"><%= link_to 'Выйти', destroy_user_session_path, data: { turbo_method: :delete }, class: "nav-link button"  %></li>
+          <li class="header-nav-item"><%= link_to 'Выйти', destroy_user_session_path, data: { turbo_method: :delete }, class: "nav-link button" %></li>
         <% else %>
-          <li class="header-nav-item"><%= link_to 'Войти', new_user_session_path, class: "nav-link button"  %></li>
-          <li class="header-nav-item"><%= link_to 'Зарегистрироваться', new_user_registration_path, class: "nav-link button"  %></li>
+          <li class="header-nav-item"><%= link_to 'Войти', new_user_session_path, class: "nav-link button" %></li>
+          <li class="header-nav-item"><%= link_to 'Зарегистрироваться', new_user_registration_path, class: "nav-link button" %></li>
         <% end %>
       </ul>
     </div>
@@ -32,12 +32,12 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-9 ">
+      <%= render partial: "partials/flash" %>
       <%= yield %>
     </div>
     <div class="col-lg-3">
     </div><!--/span-->
   </div>
-
 
   <footer class="text-center text-lg-start">
     <div class="text-center p-1">
