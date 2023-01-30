@@ -11,7 +11,7 @@
     <%= f.text_field :email, class: 'form-control' %>
   </div>
 
-  <div class="form-group">
+  <div class="form-group mb-2">
     <%= f.label :avatar %>
     <p><%= image_tag(@user.avatar.thumb.url) if @user.avatar? %></p>
     <%= f.file_field :avatar %>
@@ -19,6 +19,6 @@
 
   <div class="actions">
     <%= f.submit 'Сохранить', class: 'btn btn-primary' %>
-    или <%= link_to 'вернуться', :back %>
+    или <%= link_to 'вернуться', :back, class: "link" %>
   </div>
 <% end %>
