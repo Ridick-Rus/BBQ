@@ -27,15 +27,6 @@ class CommentsController < ApplicationController
     redirect_to @event, message
   end
 
-  # PATCH/PUT /comments/1
-  def update
-    if @comment.update(comment_params)
-      redirect_to @comment, notice: "Comment was successfully updated."
-    else
-      render :edit, status: :unprocessable_entity
-    end
-  end
-
   private
 
   def set_event

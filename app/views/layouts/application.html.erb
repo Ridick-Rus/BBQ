@@ -18,11 +18,11 @@
     <div class="header-nav">
       <ul class="mg-bt">
         <% if user_signed_in? %>
-          <li class="header-nav-item"><%= link_to 'Профиль', current_user, class: "nav-link button" %></li>
-          <li class="header-nav-item"><%= link_to 'Выйти', destroy_user_session_path, data: { turbo_method: :delete }, class: "nav-link button" %></li>
+          <li class="header-nav-item"><%= link_to I18n.t('buttons.profile'), current_user, class: "nav-link button" %></li>
+          <li class="header-nav-item"><%= link_to I18n.t('actions.sign_out'), destroy_user_session_path, data: { turbo_method: :delete }, class: "nav-link button" %></li>
         <% else %>
-          <li class="header-nav-item"><%= link_to 'Войти', new_user_session_path, class: "nav-link button" %></li>
-          <li class="header-nav-item"><%= link_to 'Зарегистрироваться', new_user_registration_path, class: "nav-link button" %></li>
+          <li class="header-nav-item"><%= link_to I18n.t('actions.sign_in'), new_user_session_path, class: "nav-link button" %></li>
+          <li class="header-nav-item"><%= link_to I18n.t('actions.sign_up'), new_user_registration_path, class: "nav-link button" %></li>
         <% end %>
       </ul>
     </div>

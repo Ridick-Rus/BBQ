@@ -43,6 +43,16 @@ ru:
       created: 'Вы добавили фотографию к событию'
       destroyed: 'Вы удалили фотку'
 
+  buttons:
+    go_back: 'Назад'
+    save: 'Сохранить'
+    delete: 'Удалить'
+    edit: 'Редактировать'
+    profile: 'Профиль'
+    show: 'Показать'
+    upload: 'Загрузить'
+    subscribe: 'Подписаться'
+
 
   app:
     name: 'Шашлыки'
@@ -50,17 +60,30 @@ ru:
 
   comments:
     comment:
-    destroy_confirm: 'Вы уверены, что хотите удалить этот комментарий?'
+      destroy_confirm: 'Вы уверены, что хотите удалить этот комментарий?'
 
   subscriptions:
     subscription:
       destroy_confirm: 'Вы уверены, что хотите удалить эту подписку?'
 
+  destroy_confirm: "Вы уверены?"
+
   words:
     errors:
-      one: "%{count} ошибку"
-      few: "%{count} ошибки"
-      many: "%{count} ошибок"
+      one: '%{count} ошибку'
+      few: '%{count} ошибки'
+      many: '%{count} ошибок'
 
-  buttons:
-    delete: "Удалить"
+  actions:
+    send_instruction: "Выслать инструкции по адресу"
+    sign_in: "Войти"
+    sign_out: "Выйти"
+    sign_up: "Зарегистрироваться"
+    send: "Отправить"
+    change_password: "Сменить пароль"
+    forgot_your_password: "Забыли пароль?"
+    create_event: "Создать событие"
+    account:
+      edit: "Редактировать профиль"
+      delete: "Удалить аккаунт"
+      destroy_confirm: 'Вы уверены, что хотите удалить аккаунт?'
