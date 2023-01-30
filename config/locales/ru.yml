@@ -91,3 +91,4 @@ ru:
   errors:
     messages:
       used_email: "Нельзя использовать чужой email для регистрации"
+      must_not_be_creator: "Нельзя подписываться на собственное событие"
