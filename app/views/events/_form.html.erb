@@ -6,23 +6,23 @@
     <%= f.text_field :title, class: 'form-control' %>
   </div>
 
-  <div class="form-group">
+  <div class="form-group mt-1">
     <%= f.label :address %>
     <%= f.text_field :address, class: 'form-control' %>
   </div>
 
-  <div class="form-group">
+  <div class="form-group mt-1">
     <%= f.label :datetime %>
     <p><%= f.datetime_select :datetime, class: 'form-control' %></p>
   </div>
 
-  <div class="form-group">
+  <div class="form-group mt-1">
     <%= f.label :description %>
     <%= f.text_area :description, class: 'form-control' %>
   </div>
 
-  <div class="actions">
+  <div class="actions mt-3">
     <%= f.submit 'Сохранить', class: 'btn btn-primary' %>
-    или <%= link_to 'вернуться', :back %>
+    или <%= link_to 'вернуться', :back, class: "link" %>
   </div>
 <% end %>
