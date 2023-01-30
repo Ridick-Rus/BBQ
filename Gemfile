@@ -17,7 +17,7 @@ gem "puma", "~> 5.0"
 
 gem "devise"
 gem "devise-i18n"
-gem "russian"
+gem "rails-i18n"
 gem "carrierwave"
 gem "rmagick"
 

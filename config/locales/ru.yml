@@ -55,3 +55,9 @@ ru:
   subscriptions:
     subscription:
       destroy_confirm: 'Вы уверены, что хотите удалить эту подписку?'
+
+  words:
+    errors:
+      one: "%{count} ошибку"
+      few: "%{count} ошибки"
+      many: "%{count} ошибок"
