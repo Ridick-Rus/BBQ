@@ -12,9 +12,9 @@ module ActionMailer
       class_attribute :delivery_method, default: :smtp
 
       add_delivery_method :smtp, Mail::SMTP,
-                          address:              "goodprog-projects.ru",
+                          address:              "localhost",
                           port:                 25,
-                          domain:               "goodprog-projects.ru",
+                          domain:               "localhost.localdomain",
                           user_name:            nil,
                           password:             nil,
                           authentication:       nil,
