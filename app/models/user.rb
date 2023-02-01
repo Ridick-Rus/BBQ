@@ -6,8 +6,8 @@ class User < ActiveRecord::Base
   has_many :subscriptions, dependent: :destroy
   has_many :comments, dependent: :destroy
 
-  validates :name, length: {maximum: 35}
-  validates :email, length: { maximum: 100 }
+  validates :name, presence: true, length: {maximum: 35}
+  validates :email, presence: true, length: { maximum: 100 }
 
   before_validation :set_name, on: :create
 
