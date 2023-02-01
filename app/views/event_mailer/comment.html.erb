@@ -4,8 +4,11 @@
 
 <hr/>
 
-<%= t '.event' %>
-<h3><%= @event.title %></h3>
+<p><%= t '.event' %>:
+  <strong>
+    <%= link_to @event.title, event_url(@event) %>
+  </strong>
+</p>
 
 <%= t '.datetime' %>
 <h4><%= l @event.datetime %></h4>

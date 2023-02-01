@@ -3,7 +3,7 @@ class Comment < ApplicationRecord
   belongs_to :user
 
   # Не может быть комментария без события
-  validates  :event, presence: true
+  validates  :event
   # Пустой комментарий тоже недопустим
   validates :body, presence: true
 
