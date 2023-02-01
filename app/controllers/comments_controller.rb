@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
     @new_comment.user = current_user
 
     if @new_comment.save
-      notify_subscribers(@event, @new_comment)
+
 
       redirect_to @event, notice: I18n.t('controllers.comments.created')
     else
