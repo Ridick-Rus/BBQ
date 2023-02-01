@@ -126,7 +126,6 @@ ru:
     register: "Зарегистрироваться"
     login: "Войти"
     edit: "Редактировать профиль"
-    change_password:
     forgot_password: "Забыли пароль?"
     left_empty: "(Оставьте пустым, если не хотите менять)"
     minimal_length: "Минимальная длина: "
@@ -141,3 +140,4 @@ ru:
     creator: "Организовал:"
     form_contains: "Форма содержит"
     user_has_no_events: "Пользователь пока не организовал ни одного события"
+    change_password: "Поменять пароль"

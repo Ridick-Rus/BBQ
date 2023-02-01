@@ -1,0 +1,32 @@
+<div class="row d-flex justify-content-center">
+  <h2><%= I18n.t('form.change_password') %></h2>
+
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put,
+                                                                                       data: { turbo: false } }) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+    <%= f.hidden_field :reset_password_token %>
+
+    <div class="field form-group col-md-6">
+      <%= f.label :password%>
+      <div class="container px-0">
+        <% if @minimum_password_length %>
+          <em>(Не менее <%= @minimum_password_length %> символов)</em>
+        <% end %>
+      </div>
+      <%= f.password_field :password, autocomplete: "new-password", class: "form-control mb-2" %>
+    </div>
+
+    <div class="field form-group col-md-6">
+      <%= f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control mb-2" %>
+    </div>
+
+    <div class="buffer-top">
+      <%= f.submit I18n.t('buttons.save'), class: "btn btn-primary" %>
+    </div>
+  <% end %>
+
+  <div class="mt-2">
+    <%= render "devise/shared/links" %>
+  </div>
+</div>
