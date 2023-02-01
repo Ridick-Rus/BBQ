@@ -1,4 +1,4 @@
-<h2 class="mt-2"><%= I18n.t('form.login') %>></h2>
+<h2 class="mt-2"><%= I18n.t('form.login') %></h2>
 
 <%= form_for(resource, as: resource_name, data: {turbo: false}, url: session_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
