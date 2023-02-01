@@ -1,6 +1,6 @@
-<h2 class="mt-3">Регистрация</h2>
+<h2 class="mt-3"><%= I18n.t('form.register') %>></h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), data: {turbo: false}) do |f| %>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: false }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field form-group col-md-6">
@@ -9,10 +9,12 @@
   </div>
 
   <div class="field form-group col-md-6">
-    <%= f.label :password %>
+    <%= f.label :password%>
+    <div class="container px-0">
     <% if @minimum_password_length %>
-    <em>(Не менее <%= @minimum_password_length %> символов)</em>
-    <% end %><br />
+      <em>(Не менее <%= @minimum_password_length %> символов)</em>
+    <% end %>
+    </div>
     <%= f.password_field :password, autocomplete: "new-password", class: "form-control mb-2" %>
   </div>
 
@@ -26,4 +28,4 @@
   </div>
 <% end %>
 
-<%= render "devise/shared/links"%>
+<%= render "devise/shared/links" %>

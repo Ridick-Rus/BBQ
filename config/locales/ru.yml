@@ -88,6 +88,7 @@ ru:
       edit: "Редактировать профиль"
       delete: "Удалить аккаунт"
       destroy_confirm: 'Вы уверены, что хотите удалить аккаунт?'
+    edit: "Изменить"
 
   errors:
     messages:
@@ -120,3 +121,23 @@ ru:
 
   event:
     pincode: 'Пин-код доступа'
+
+  form:
+    register: "Зарегистрироваться"
+    login: "Войти"
+    edit: "Редактировать профиль"
+    change_password:
+    forgot_password: "Забыли пароль?"
+    left_empty: "(Оставьте пустым, если не хотите менять)"
+    minimal_length: "Минимальная длина: "
+    current_password_for_confirmation: '(Введите текущий пароль для подтверждения)'
+    edit_event: "Редактирование события"
+    events: "События"
+    new_event: "Новое событие"
+    pin_access: "Доступ только по пин-коду"
+    call: "Зовет:"
+    go_in: "Пойдут:"
+    i_come: "Я пойду:"
+    creator: "Организовал:"
+    form_contains: "Форма содержит"
+    user_has_no_events: "Пользователь пока не организовал ни одного события"
