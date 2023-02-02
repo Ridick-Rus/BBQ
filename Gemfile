@@ -21,7 +21,6 @@ gem "devise-i18n"
 gem "rails-i18n"
 gem "carrierwave"
 gem "rmagick"
-gem 'gmaps4rails'
 
 # Bundle and transpile JavaScript [https://github.com/rails/jsbundling-rails]
 gem "jsbundling-rails"
