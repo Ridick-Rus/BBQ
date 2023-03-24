@@ -9,7 +9,7 @@
   <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
   <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   <%= javascript_include_tag "map", "data-turbo-track": "reload", defer: true %>
-  <script src="https://api-maps.yandex.ru/2.1/?apikey=<%= ENV["YANDEX_MAP_API_KEY"] %>&lang=ru_RU" type="text/javascript"></script>
+  <script src="https://api-maps.yandex.ru/2.1/?apikey=<%= "#{Rails.application.credentials.yandex_map_api_key}"%>&lang=ru_RU" type="text/javascript"></script>
 
 </head>
 
