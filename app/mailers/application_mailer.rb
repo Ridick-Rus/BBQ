@@ -1,5 +1,5 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'litomon276@gmail.com'
+  default from: 'GoodLinks@goodprog-projects.ru'
 
   layout 'mailer'
 end
