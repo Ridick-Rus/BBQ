@@ -1,4 +1,12 @@
 class EventPolicy < ApplicationPolicy
+  def index?
+    true
+  end
+
+  def new?
+    create?
+  end
+
   def create?
     user.user.present?
   end
