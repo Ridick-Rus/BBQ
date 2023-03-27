@@ -49,6 +49,12 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 #gem "sassc-rails"
 
 group :development, :test do
+  gem 'capistrano', '~> 3.17', require: false
+  gem 'capistrano-rails', '~> 1.6', require: false
+  gem 'capistrano-passenger'
+  gem 'capistrano-rbenv', '~> 2.2'
+  gem 'capistrano-bundler', '~> 2.0'
+  gem "capistrano-resque", require: false
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'sqlite3'
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
