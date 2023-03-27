@@ -10,7 +10,7 @@ class SubscriptionsController < ApplicationController
     authorize(@new_subscription)
 
     if @new_subscription.save
-      EventMailer.subscription(@event, @new_subscription).deliver_now
+      EventMailer.subscription(@new_subscription).deliver_now
 
       redirect_to @event, notice: I18n.t('controllers.subscriptions.created')
     else
