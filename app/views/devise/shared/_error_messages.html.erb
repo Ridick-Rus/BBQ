@@ -1,7 +1,7 @@
 <% if resource.errors.any? %>
   <div id="error_explanation">
     <div class="alert alert-danger alert-dismissible col-md-8">
-      <h4><%= t('form.form_contains') %>> <%= t("words.errors", count: resource.errors.count) %></h4>
+      <h4><%= t('form.form_contains') %> <%= t("words.errors", count: resource.errors.count) %></h4>
       <ul>
         <% resource.errors.each do |error| %>
           <li><%= error.full_message %></li>

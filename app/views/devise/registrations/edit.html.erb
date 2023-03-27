@@ -8,10 +8,6 @@
     <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control mb-2" %>
   </div>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
-
   <div class="field form-group col-md-6">
     <%= f.label :password %>
     <small><%= t('form.left_empty') %>></small><br/>

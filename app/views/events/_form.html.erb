@@ -28,6 +28,6 @@
 
   <div class="actions mt-3">
     <%= f.submit t('buttons.save'), class: 'btn btn-primary' %>
-    или <%= link_to t('buttons.go_back'), :back, class: "link" %>
+    <%= t('or') %> <%= link_to t('buttons.go_back'), :back, class: "link" %>
   </div>
 <% end %>
