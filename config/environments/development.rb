@@ -51,14 +51,16 @@ Rails.application.configure do
   # Suppress logger output for asset requests.
   config.assets.quiet = true
 
-  config.action_mailer.default_url_options = { host: "localhost:3000" }
+  config.action_mailer.delivery_method = :smtp
 
-  # Raises error for missing translations.
-  # config.i18n.raise_on_missing_translations = true
+  config.action_mailer.default_url_options = { :host => Rails.application.credentials.host }
 
-  # Annotate rendered view with file names.
-  # config.action_view.annotate_rendered_view_with_filenames = true
-
-  # Uncomment if you wish to allow Action Cable access from any origin.
-  # config.action_cable.disable_request_forgery_protection = true
+  config.action_mailer.smtp_settings = {
+    address: 'smtp.gmail.com',
+    port: '587',
+    user_name: Rails.application.credentials.gmail_username, # не используйте для тестов свои реальные ящики
+    password: Rails.application.credentials.gmail_password,
+    authentication: 'plain',
+    enable_starttls_auto: true
+  }
 end
