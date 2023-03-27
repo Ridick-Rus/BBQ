@@ -7,6 +7,7 @@ set :application, "bbq"
 set :repo_url, "git@github.com:Ridick-Rus/BBQ.git"
 
 set :deploy_to, "/home/deploy/test-bbq"
+set :branch, "main"
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
