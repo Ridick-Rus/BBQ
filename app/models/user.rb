@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
-         :omniauthable, omniauth_providers: %i[github yandex google_oauth2]
+         :omniauthable, omniauth_providers: %i[github yandex]
 
   has_many :events, dependent: :destroy
   has_many :subscriptions, dependent: :destroy
