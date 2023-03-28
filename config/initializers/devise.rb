@@ -274,12 +274,11 @@ Devise.setup do |config|
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
 
   config.omniauth :yandex, Rails.application.credentials.yandex_oauth,
-                  Rails.application.credentials.yandex_key,
-                  image_size: "large"
+                  Rails.application.credentials.yandex_key
 
   config.omniauth :github, Rails.application.credentials.github_oauth,
                   Rails.application.credentials.github_key,
-                  scope: "user:email"
+                  scope: 'user,public_repo'
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or

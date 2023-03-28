@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  require 'open-uri'
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: %i[github yandex]
