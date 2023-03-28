@@ -24,7 +24,6 @@ gem "rmagick"
 gem "lightbox2-rails"
 gem "pundit"
 gem "omniauth"
-gem 'omniauth-google-oauth2'
 gem 'omniauth-yandex', github: 'evrone/omniauth-yandex', branch: 'dependabot/bundler/omniauth-2.1.0'
 gem "omniauth-github"
 gem "omniauth-rails_csrf_protection"
