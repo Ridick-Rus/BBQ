@@ -330,6 +330,7 @@ DEPENDENCIES
   rails (~> 7.0.4, >= 7.0.4.2)
   rails-controller-testing
   rails-i18n
+  resque (~> 2.4)
   rmagick
   rspec-rails
   shoulda-matchers
