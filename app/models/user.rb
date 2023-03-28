@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
-         :omniauthable, omniauth_providers: %i[github yandex]
+         :omniauthable, omniauth_providers: %i[github yandex google_oauth2]
 
   has_many :events, dependent: :destroy
   has_many :subscriptions, dependent: :destroy
@@ -33,6 +33,8 @@ class User < ActiveRecord::Base
       url = access_token.extra.raw_info.url
     when provider == 'yandex'
       avatar_url = "https://avatars.mds.yandex.net/get-yapic/#{access_token.extra.raw_info.default_avatar_id}/islands-300"
+      url = access_token.extra.raw_info.id
+    else
       url = access_token.extra.raw_info.id
     end
 

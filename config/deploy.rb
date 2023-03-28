@@ -26,7 +26,7 @@ set :branch, "main"
 # set :pty, true
 
 # Default value for :linked_files is []
-append :linked_files, "config/database.yml", 'config/master.key'
+append :linked_files, 'config/master.key'
 
 # Default value for linked_dirs is []
 set :linked_dirs, %w(public/uploads)
