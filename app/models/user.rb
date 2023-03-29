@@ -29,7 +29,6 @@ class User < ActiveRecord::Base
 
     case
     when provider == 'github'
-      debugger
       avatar_url = "https://avatars.githubusercontent.com/#{name}"
         access_token.extra.raw_info.avatar_url
       url = access_token.extra.raw_info.url
