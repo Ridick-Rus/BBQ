@@ -1,6 +1,5 @@
+require 'open-uri'
 class User < ActiveRecord::Base
-  require 'open-uri'
-
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: %i[github yandex]
@@ -8,6 +7,7 @@ class User < ActiveRecord::Base
   has_many :events, dependent: :destroy
   has_many :subscriptions, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :photos, dependent: :destroy
 
   validates :name, presence: true, length: {maximum: 35}
   validates :email, presence: true, length: { maximum: 100 }
@@ -29,7 +29,9 @@ class User < ActiveRecord::Base
 
     case
     when provider == 'github'
-      avatar_url = access_token.extra.raw_info.avatar_url
+      debugger
+      avatar_url = "https://avatars.githubusercontent.com/#{name}"
+        access_token.extra.raw_info.avatar_url
       url = access_token.extra.raw_info.url
     when provider == 'yandex'
       avatar_url = "https://avatars.mds.yandex.net/get-yapic/#{access_token.extra.raw_info.default_avatar_id}/islands-300"
@@ -42,7 +44,7 @@ class User < ActiveRecord::Base
       user.email = email
       user.name = name
       user.password = Devise.friendly_token.first(16)
-      user.avatar.attach(io: URI.open(avatar_url), filename: "#{name}_avatar") if avatar_url.present?
+      user.remote_avatar_url = avatar_url
     end
   end
 
