@@ -2,14 +2,21 @@ class EventNotificationJob < ApplicationJob
   queue_as :default
 
   def perform(object, mail = nil)
-    case when mail.nil?
+    if mail.nil?
       all_emails = (object.event.subscriptions.map(&:user_email) + [object.event.user.email]).uniq
       all_emails -= [object.user&.email]
-      all_emails.each do |email|
-        EventMailer.try(object.class.to_s.downcase, object, email).deliver_later
+      case object
+      when Photo
+        all_emails.each do |email|
+          EventMailer.photo(object, email).deliver_later
+        end
+      when Comment
+        all_emails.each do |email|
+          EventMailer.comment(object, email).deliver_later
+        end
       end
     else
-      EventMailer.try(object.class.to_s.downcase, object).deliver_later
+      EventMailer.subscription(object).deliver_later
     end
   end
 end
