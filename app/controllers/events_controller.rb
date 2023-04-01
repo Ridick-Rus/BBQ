@@ -1,17 +1,13 @@
 class EventsController < ApplicationController
-  # Задаем объект @event для тех действий, где он нужен
-  # Встроенный в девайз фильтр - посылает незалогиненного пользователя
-  before_action :authenticate_user!, except: [:show, :index]
+  before_action :authenticate_user!, except: %i[show index]
 
-  # Задаем объект @event для экшена show
-  before_action :set_event, only: [:show]
+  before_action :set_event, only: %i[show edit update destroy]
 
-  before_action :set_event, only: %i[ show edit update destroy ]
-
-  after_action :verify_authorized, only: %i[edit update destroy show]
+  after_action :verify_authorized, except: :index
+  after_action :verify_policy_scoped, only: :index
 
   def index
-    @events = Event.all
+    @events = policy_scope(Event)
   end
 
   def show

@@ -1,4 +1,10 @@
 class EventPolicy < ApplicationPolicy
+  class Scope < Scope
+    def resolve
+      scope.all
+    end
+  end
+
   def index?
     true
   end
@@ -27,6 +33,8 @@ class EventPolicy < ApplicationPolicy
   def update?
     user_is_owner?
   end
+
+
 
   private
 
