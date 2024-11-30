@@ -1,0 +1,58 @@
+name: Trello Integration
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  issues:
+    types:
+      - opened
+  workflow_dispatch:  # Этот триггер позволяет запускать workflow вручную
+
+jobs:
+  create-trello-card:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Шаг 1: Checkout репозитория
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Шаг 2: Создание карточки при открытии нового Issue
+      - name: Create Trello Card on Issue Open
+        if: github.event_name == 'issues' && github.event.action == 'opened'  # Срабатывает только на создание issue
+        env:
+          TRELLO_API_KEY: ${{ secrets.TRELLO_API_KEY }}
+          TRELLO_API_TOKEN: ${{ secrets.TRELLO_API_TOKEN }}
+          TRELLO_LIST_ID: ${{ secrets.TRELLO_LIST_ID }}
+        run: |
+          ISSUE_TITLE="${{ github.event.issue.title }}"
+          ISSUE_BODY="${{ github.event.issue.body }}"
+          AUTHOR="${{ github.event.issue.user.login }}"
+          curl -X POST "https://api.trello.com/1/cards" \
+          -d "name=New Issue: $ISSUE_TITLE" \
+          -d "desc=New issue opened: $ISSUE_BODY by $AUTHOR. View at: https://github.com/${{ github.repository }}/issues/${{ github.event.issue.number }}" \
+          -d "idList=$TRELLO_LIST_ID" \
+          -d "key=$TRELLO_API_KEY" \
+          -d "token=$TRELLO_API_TOKEN"
+
+      # Шаг 3: Создание карточки вручную через кнопку (workflow_dispatch)
+      - name: Create Trello Card on Manual Trigger
+        if: github.event_name == 'workflow_dispatch'  # Срабатывает только при вручную запуске
+        env:
+          TRELLO_API_KEY: ${{ secrets.TRELLO_API_KEY }}
+          TRELLO_API_TOKEN: ${{ secrets.TRELLO_API_TOKEN }}
+          TRELLO_LIST_ID: ${{ secrets.TRELLO_LIST_ID }}
+        run: |
+          ISSUE_TITLE="Manual Trigger"
+          ISSUE_BODY="This card was created by manually triggering the GitHub Actions workflow."
+          AUTHOR="${{ github.actor }}"
+          curl -X POST "https://api.trello.com/1/cards" \
+          -d "name=Manual Trigger Card: $ISSUE_TITLE" \
+          -d "desc=Card created manually by $AUTHOR. Triggered from GitHub Actions." \
+          -d "idList=$TRELLO_LIST_ID" \
+          -d "key=$TRELLO_API_KEY" \
+          -d "token=$TRELLO_API_TOKEN"
