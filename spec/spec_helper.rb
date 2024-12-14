@@ -1,4 +1,6 @@
 require 'simplecov'
+require 'database_cleaner/active_record'
+
 SimpleCov.start 'rails' do
   add_filter '/bin/'
   add_filter '/db/'
@@ -15,6 +17,21 @@ end
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
+  end
+
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :transaction # Используется для большинства тестов
+    DatabaseCleaner.clean_with(:truncation) # Полная очистка перед запуском
+  end
+
+  config.before(:each) do
+    DatabaseCleaner.strategy = :transaction # Используется для большинства тестов
+    DatabaseCleaner.start
+    DatabaseCleaner.clean
+  end
+
+  config.after(:each) do
+    DatabaseCleaner.clean
   end
 
   config.mock_with :rspec do |mocks|

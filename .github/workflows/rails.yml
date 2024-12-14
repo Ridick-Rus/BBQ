@@ -30,6 +30,9 @@ jobs:
         run: |
           docker-compose -f .docker/docker-compose.yml exec -T app bundle exec rails db:create
           docker-compose -f .docker/docker-compose.yml exec -T app bundle exec rails db:migrate
-          docker-compose -f .docker/docker-compose.yml exec -T app bundle exec rspec
+          docker-compose -f .docker/docker-compose.yml exec -T app bundle exec rspec spec/controllers --format=d
+          docker-compose -f .docker/docker-compose.yml exec -T app bundle exec rspec spec/jobs --format=d
+          docker-compose -f .docker/docker-compose.yml exec -T app bundle exec rspec spec/policies --format=d
+
         env:
           RAILS_ENV: test

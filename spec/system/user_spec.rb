@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'User Management', type: :system do
-  let(:user) { create(:user, name: 'Test User', email: 'test@example.com') }
+  let(:user) { create(:user) }
   let(:other_user) { create(:user, name: 'Other User') }
   let(:event) { create(:event, user: user, title: 'Test Event') }
 
@@ -12,7 +12,7 @@ RSpec.describe 'User Management', type: :system do
       it 'displays user information' do
         visit user_path(user)
 
-        expect(page).to have_content('Test User')
+        expect(page).to have_content(user.name)
         expect(page).to have_content(I18n.t('form.creator'))
       end
     end
