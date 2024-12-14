@@ -56,3 +56,28 @@ jobs:
           -d "idList=$TRELLO_LIST_ID" \
           -d "key=$TRELLO_API_KEY" \
           -d "token=$TRELLO_API_TOKEN"
+
+      # Шаг 4: Создание карточки при push
+      - name: Count commits on push
+        if: github.event_name == 'push'
+        env:
+          GITHUB_EVENT: ${{ toJson(github.event) }}
+        run: |
+          echo "COMMIT_COUNT=$(echo $GITHUB_EVENT | jq '.commits | length')" >> $GITHUB_ENV
+
+      - name: Create Trello Card on Push
+        if: github.event_name == 'push'
+        env:
+          TRELLO_API_KEY: ${{ secrets.TRELLO_API_KEY }}
+          TRELLO_API_TOKEN: ${{ secrets.TRELLO_API_TOKEN }}
+          TRELLO_LIST_ID: ${{ secrets.TRELLO_LIST_ID }}
+          COMMIT_COUNT: ${{ env.COMMIT_COUNT }}
+        run: |
+          PUSH_AUTHOR="${{ github.actor }}"
+          PUSH_BRANCH="${{ github.ref_name }}"
+          curl -X POST "https://api.trello.com/1/cards" \
+          -d "name=Push to Branch: $PUSH_BRANCH" \
+          -d "desc=$COMMIT_COUNT commit(s) pushed to $PUSH_BRANCH by $PUSH_AUTHOR. View at: https://github.com/${{ github.repository }}/commits/${{ github.ref }}" \
+          -d "idList=$TRELLO_LIST_ID" \
+          -d "key=$TRELLO_API_KEY" \
+          -d "token=$TRELLO_API_TOKEN"
